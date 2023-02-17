@@ -32,7 +32,7 @@ public class LocalProcessor {
         this.stringList = stringList;
     }
 
-    private LocalProcessor() {
+    public LocalProcessor() {
     }
 
     @ListIteratorAnnotation
