@@ -18,7 +18,7 @@ import lombok.Setter;
 public class LocalProcessor {
     private String processorName;
     private Long period = 10_000_000_000_000L;
-    protected String processorVersion;
+    private String processorVersion;
     private Integer valueOfCheap;
     Scanner informationScanner;
     private static List<String> stringList = new LinkedList<>();
