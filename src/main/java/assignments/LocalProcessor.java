@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.lang.StringBuilder;
 
 import assignments.annotations.FullNameProcessorGeneratorAnnotation;
 import assignments.annotations.ListIteratorAnnotation;
@@ -21,6 +22,7 @@ public class LocalProcessor {
     private Integer valueOfCheap;
     Scanner informationScanner;
     private static List<String> stringList = new LinkedList<>();
+    private StringBuilder stringBuilder;
 
     public LocalProcessor(String processorName, Long period, String processorVersion, Integer valueOfCheap,
                           Scanner informationScanner, List<String> stringList) {
@@ -36,7 +38,7 @@ public class LocalProcessor {
     }
 
     @ListIteratorAnnotation
-    private void listIterator(List<String> stringList) {
+    public void listIterator(List<String> stringList) {
         LocalProcessor.stringList = new LinkedList<>(stringList);
         for (String string : LocalProcessor.stringList) {
             if(string != null) {
@@ -46,7 +48,7 @@ public class LocalProcessor {
     }
 
     @FullNameProcessorGeneratorAnnotation
-    private String fullNameProcessorGenerator(List<String> stringList) {
+    public String fullNameProcessorGenerator(List<String> stringList) {
         StringBuilder strBuilder = new StringBuilder();
         for (String string : LocalProcessor.stringList) {
             processorName += string + " ";
@@ -55,7 +57,7 @@ public class LocalProcessor {
     }
 
     @ReadFullProcessorNameAnnotation
-    private void readFullProcessorName(File file){
+    public void readFullProcessorName(File file){
         try {
             informationScanner = new Scanner(file);
             while (informationScanner.hasNext()) {
