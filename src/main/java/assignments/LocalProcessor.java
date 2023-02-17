@@ -32,30 +32,30 @@ public class LocalProcessor {
         this.stringList = stringList;
     }
 
-    public LocalProcessor() {
+    private LocalProcessor() {
     }
 
     @ListIteratorAnnotation
-    public void listIterator(List<String> stringList) {
+    private void listIterator(List<String> stringList) {
         LocalProcessor.stringList = new LinkedList<>(stringList);
         for (String string : LocalProcessor.stringList) {
-            System.out.println(string.hashCode());
+            if(string != null) {
+                System.out.println(string.hashCode());
+            }
         }
     }
 
     @FullNameProcessorGeneratorAnnotation
-    public String fullNameProcessorGenerator(List<String> stringList) {
+    private String fullNameProcessorGenerator(List<String> stringList) {
         StringBuilder strBuilder = new StringBuilder();
         for (String string : LocalProcessor.stringList) {
-            strBuilder.append(string);
-            strBuilder.append(" ");
+            processorName += string + " ";
         }
-        processorName = strBuilder.toString();
         return processorName;
     }
 
     @ReadFullProcessorNameAnnotation
-    public void readFullProcessorName(File file){
+    private void readFullProcessorName(File file){
         try {
             informationScanner = new Scanner(file);
             while (informationScanner.hasNext()) {
