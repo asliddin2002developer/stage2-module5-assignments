@@ -20,7 +20,7 @@ public class LocalProcessor {
     private Long period = 10_000_000_000_000L;
     private String processorVersion;
     private Integer valueOfCheap;
-    Scanner informationScanner;
+    private Scanner informationScanner;
     private static List<String> stringList = new LinkedList<>();
     private StringBuilder stringBuilder;
 
